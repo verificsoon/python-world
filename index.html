@@ -1,0 +1,627 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#174d78">
+<title>Python World</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+html {
+    width: 100%;
+    margin: 0;
+    scroll-behavior: smooth;
+}
+
+body {
+    width: 100%;
+    min-width: 0;
+    margin: 0;
+    background: #c6c6c6;
+    color: #222;
+    font-family: Tahoma, Verdana, Arial, sans-serif;
+    font-size: 14px;
+}
+
+header {
+    width: 100%;
+    padding: 20px 15px;
+    background: linear-gradient(#4386b4, #17466d);
+    color: white;
+    border-bottom: 4px solid #e5c75c;
+}
+
+header h1 {
+    font-family: Georgia, serif;
+    font-size: 29px;
+    margin: 0;
+}
+
+header p {
+    margin: 7px 0 0;
+}
+
+.topline {
+    background: #eee;
+    border-bottom: 1px solid #999;
+    padding: 11px 13px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.menu-button {
+    background: #17466d;
+    color: white;
+    border: 1px solid #092c48;
+    padding: 9px 15px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.menu {
+    display: none;
+    background: #eee;
+    border-bottom: 1px solid #888;
+    padding: 8px;
+}
+
+.menu.open {
+    display: block;
+}
+
+.menu a {
+    display: block;
+    padding: 12px;
+    border-bottom: 1px solid #ccc;
+    color: #003b85;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.menu a:active {
+    background: #ddd;
+}
+
+.container {
+    width: 100%;
+    max-width: 100%;
+    padding: 10px;
+    margin: 0;
+}
+
+.card {
+    width: 100%;
+    min-width: 0;
+    background: white;
+    border: 1px solid #888;
+    padding: 15px;
+    margin-bottom: 13px;
+    box-shadow: 2px 2px 0 #999;
+}
+
+.card h2 {
+    font-family: Georgia, serif;
+    color: #17466d;
+    font-size: 21px;
+    border-bottom: 2px solid #477da2;
+    padding-bottom: 8px;
+    margin-top: 3px;
+}
+
+.card h3 {
+    color: #17466d;
+    font-size: 16px;
+}
+
+.card p {
+    line-height: 1.65;
+}
+
+.card li {
+    line-height: 1.9;
+}
+
+.notice {
+    background: #ffffd9;
+    border: 1px solid #c6ad50;
+    padding: 12px;
+    margin: 12px 0;
+}
+
+pre {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: auto;
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+    background: #eeeeee;
+    border: 1px solid #aaa;
+    padding: 13px;
+    font-size: 13px;
+    line-height: 1.6;
+    color: #222;
+}
+
+.copy {
+    background: #17466d;
+    color: white;
+    border: 1px solid #092c48;
+    padding: 10px 14px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.copy:active {
+    background: #5486a9;
+}
+
+a {
+    color: #003b99;
+}
+
+hr {
+    border: 0;
+    border-top: 1px solid #aaa;
+    margin: 17px 0;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+td, th {
+    border: 1px solid #888;
+    padding: 9px;
+    text-align: left;
+}
+
+th {
+    background: #ddd;
+}
+
+footer {
+    width: 100%;
+    background: #17466d;
+    color: white;
+    text-align: center;
+    padding: 22px 12px;
+}
+
+footer a {
+    color: #ffffa5;
+}
+
+@media (min-width: 700px) {
+    .container {
+        max-width: 1050px;
+        margin: auto;
+        padding: 18px;
+    }
+
+    .menu.open {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .menu a {
+        flex: 1 1 180px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>🐍 Python World</h1>
+    <p>Всё о языке программирования Python</p>
+</header>
+
+<div class="topline">
+    <b>Главное меню</b>
+    <button class="menu-button" onclick="toggleMenu()">☰ МЕНЮ</button>
+</div>
+
+<nav class="menu" id="menu">
+    <a href="#home" onclick="closeMenu()">Главная</a>
+    <a href="#about" onclick="closeMenu()">О Python</a>
+    <a href="#install" onclick="closeMenu()">Установка</a>
+    <a href="#first" onclick="closeMenu()">Первый код</a>
+    <a href="#variables" onclick="closeMenu()">Переменные</a>
+    <a href="#conditions" onclick="closeMenu()">Условия</a>
+    <a href="#loops" onclick="closeMenu()">Циклы</a>
+    <a href="#functions" onclick="closeMenu()">Функции</a>
+    <a href="#lists" onclick="closeMenu()">Списки</a>
+    <a href="#libraries" onclick="closeMenu()">Библиотеки</a>
+    <a href="#errors" onclick="closeMenu()">Ошибки</a>
+</nav>
+
+<div class="container">
+
+<!-- ГЛАВНАЯ -->
+
+<section class="card" id="home">
+    <h2>Добро пожаловать!</h2>
+
+    <p>Приветствуем тебя на Python World!</p>
+
+    <p>
+        Здесь ты найдёшь подробную информацию о языке Python,
+        научишься писать программы и создавать собственные проекты.
+    </p>
+
+    <div class="notice">
+        <b>Начни изучать Python прямо сейчас!</b>
+        <p>Даже если ты никогда не программировал, этот учебник поможет разобраться.</p>
+    </div>
+
+    <p><b>Выбери интересующий раздел в меню.</b></p>
+</section>
+
+<!-- О PYTHON -->
+
+<section class="card" id="about">
+    <h2>Что такое Python?</h2>
+
+    <p>
+        Python — высокоуровневый язык программирования,
+        созданный Гвидо ван Россумом.
+    </p>
+
+    <h3>Где используется Python?</h3>
+
+    <ul>
+        <li>Создание Telegram-ботов.</li>
+        <li>Разработка сайтов.</li>
+        <li>Автоматизация процессов.</li>
+        <li>Искусственный интеллект.</li>
+        <li>Работа с базами данных.</li>
+        <li>Создание программ.</li>
+        <li>Анализ данных.</li>
+    </ul>
+
+    <a href="https://www.python.org/" target="_blank">
+        Официальный сайт Python →
+    </a>
+</section>
+
+<!-- УСТАНОВКА -->
+
+<section class="card" id="install">
+    <h2>Как установить Python?</h2>
+
+    <h3>Windows</h3>
+
+    <ol>
+        <li>Открой python.org.</li>
+        <li>Перейди в Downloads.</li>
+        <li>Скачай актуальную стабильную версию.</li>
+        <li>Запусти установщик.</li>
+        <li>Отметь Add Python to PATH.</li>
+        <li>Нажми Install Now.</li>
+    </ol>
+
+    <a href="https://www.python.org/downloads/" target="_blank">
+        Скачать Python →
+    </a>
+
+    <hr>
+
+    <h3>Android — Pydroid 3</h3>
+
+    <ol>
+        <li>Открой Google Play.</li>
+        <li>Найди Pydroid 3.</li>
+        <li>Установи приложение.</li>
+        <li>Открой редактор.</li>
+        <li>Напиши программу.</li>
+        <li>Нажми кнопку запуска.</li>
+    </ol>
+
+    <a href="https://play.google.com/store/apps/details?id=ru.iiec.pydroid3" target="_blank">
+        Открыть Pydroid 3 →
+    </a>
+
+    <hr>
+
+    <h3>Android — Termux</h3>
+
+    <p>Установи Termux, открой терминал и введи:</p>
+
+    <pre id="code1">pkg update
+pkg install python</pre>
+
+    <button class="copy" onclick="copyCode('code1')">Копировать</button>
+
+    <p>Проверка версии:</p>
+
+    <pre id="code2">python --version</pre>
+
+    <button class="copy" onclick="copyCode('code2')">Копировать</button>
+
+    <p>
+        <a href="https://f-droid.org/packages/com.termux/" target="_blank">
+            Скачать Termux →
+        </a>
+    </p>
+</section>
+
+<!-- ПЕРВЫЙ КОД -->
+
+<section class="card" id="first">
+    <h2>Урок №1. Hello World</h2>
+
+    <p>Начнём с первой программы:</p>
+
+    <pre id="code3">print("Hello, World!")
+print("Привет, мир!")</pre>
+
+    <button class="copy" onclick="copyCode('code3')">Копировать код</button>
+
+    <h3>Результат:</h3>
+
+    <pre>Hello, World!
+Привет, мир!</pre>
+
+    <p>Команда print() выводит информацию на экран.</p>
+
+    <div class="notice">
+        <b>Задание:</b> Попробуй вывести своё имя при помощи print().
+    </div>
+</section>
+
+<!-- ПЕРЕМЕННЫЕ -->
+
+<section class="card" id="variables">
+    <h2>Урок №2. Переменные</h2>
+
+    <p>Переменные позволяют хранить информацию.</p>
+
+    <pre id="code4">name = "Alex"
+age = 15
+city = "Amsterdam"
+
+print(name)
+print(age)
+print(city)</pre>
+
+    <button class="copy" onclick="copyCode('code4')">Копировать код</button>
+
+    <h3>Типы данных</h3>
+
+    <ul>
+        <li>str — текст.</li>
+        <li>int — целые числа.</li>
+        <li>float — дробные числа.</li>
+        <li>bool — логические значения.</li>
+        <li>list — списки.</li>
+        <li>dict — словари.</li>
+    </ul>
+</section>
+
+<!-- УСЛОВИЯ -->
+
+<section class="card" id="conditions">
+    <h2>Урок №3. Условия</h2>
+
+    <p>Условия позволяют программе принимать решения.</p>
+
+    <pre id="code5">age = 18
+
+if age >= 18:
+    print("Доступ разрешён")
+else:
+    print("Доступ запрещён")</pre>
+
+    <button class="copy" onclick="copyCode('code5')">Копировать код</button>
+
+    <p>Операторы сравнения:</p>
+
+    <ul>
+        <li>== равно.</li>
+        <li>!= не равно.</li>
+        <li>&gt; больше.</li>
+        <li>&lt; меньше.</li>
+        <li>&gt;= больше или равно.</li>
+        <li>&lt;= меньше или равно.</li>
+    </ul>
+</section>
+
+<!-- ЦИКЛЫ -->
+
+<section class="card" id="loops">
+    <h2>Урок №4. Циклы</h2>
+
+    <h3>Цикл for</h3>
+
+    <pre id="code6">for i in range(5):
+    print("Привет!", i)</pre>
+
+    <button class="copy" onclick="copyCode('code6')">Копировать код</button>
+
+    <h3>Цикл while</h3>
+
+    <pre id="code7">number = 0
+
+while number < 5:
+    print(number)
+    number += 1</pre>
+
+    <button class="copy" onclick="copyCode('code7')">Копировать код</button>
+</section>
+
+<!-- ФУНКЦИИ -->
+
+<section class="card" id="functions">
+    <h2>Урок №5. Функции</h2>
+
+    <p>Функции позволяют повторно использовать код.</p>
+
+    <pre id="code8">def hello(name):
+    print("Привет,", name)
+
+hello("Alex")
+hello("Python")</pre>
+
+    <button class="copy" onclick="copyCode('code8')">Копировать код</button>
+
+    <p>Ключевое слово def создаёт функцию.</p>
+</section>
+
+<!-- СПИСКИ -->
+
+<section class="card" id="lists">
+    <h2>Урок №6. Списки</h2>
+
+    <p>Списки позволяют хранить несколько значений.</p>
+
+    <pre id="code9">fruits = [
+    "Apple",
+    "Banana",
+    "Orange"
+]
+
+print(fruits)
+print(fruits[0])</pre>
+
+    <button class="copy" onclick="copyCode('code9')">Копировать код</button>
+
+    <h3>Добавление элемента</h3>
+
+    <pre id="code10">fruits.append("Cherry")
+print(fruits)</pre>
+
+    <button class="copy" onclick="copyCode('code10')">Копировать код</button>
+</section>
+
+<!-- БИБЛИОТЕКИ -->
+
+<section class="card" id="libraries">
+    <h2>Библиотеки Python</h2>
+
+    <table>
+        <tr>
+            <th>Библиотека</th>
+            <th>Назначение</th>
+        </tr>
+        <tr>
+            <td>random</td>
+            <td>Случайные числа</td>
+        </tr>
+        <tr>
+            <td>math</td>
+            <td>Математика</td>
+        </tr>
+        <tr>
+            <td>os</td>
+            <td>Работа с системой</td>
+        </tr>
+        <tr>
+            <td>json</td>
+            <td>Работа с JSON</td>
+        </tr>
+        <tr>
+            <td>requests</td>
+            <td>HTTP-запросы</td>
+        </tr>
+        <tr>
+            <td>aiogram</td>
+            <td>Telegram-боты</td>
+        </tr>
+        <tr>
+            <td>flask</td>
+            <td>Веб-приложения</td>
+        </tr>
+    </table>
+
+    <h3>Установка библиотеки</h3>
+
+    <pre id="code11">pip install requests</pre>
+
+    <button class="copy" onclick="copyCode('code11')">Копировать код</button>
+</section>
+
+<!-- ОШИБКИ -->
+
+<section class="card" id="errors">
+    <h2>Частые ошибки Python</h2>
+
+    <h3>SyntaxError</h3>
+    <p>Ошибка синтаксиса. Проверь скобки, кавычки и двоеточия.</p>
+
+    <h3>NameError</h3>
+    <p>Не найдена переменная или функция.</p>
+
+    <h3>IndentationError</h3>
+    <p>Ошибка отступов в коде.</p>
+
+    <h3>ModuleNotFoundError</h3>
+    <p>Не найдена необходимая библиотека.</p>
+
+    <h3>TypeError</h3>
+    <p>Операция использована с неподходящим типом данных.</p>
+</section>
+
+<!-- ДОКУМЕНТАЦИЯ -->
+
+<section class="card">
+    <h2>Документация и ресурсы</h2>
+
+    <ul>
+        <li><a href="https://docs.python.org/3/" target="_blank">Python Documentation</a></li>
+        <li><a href="https://pypi.org/" target="_blank">PyPI — библиотеки</a></li>
+        <li><a href="https://www.w3schools.com/python/" target="_blank">W3Schools Python</a></li>
+        <li><a href="https://realpython.com/" target="_blank">Real Python</a></li>
+    </ul>
+</section>
+
+</div>
+
+<footer>
+    <h3>Python World</h3>
+    <p>Учись. Программируй. Создавай.</p>
+    <p>Разработчик: <a href="#">@by:cowinbog</a></p>
+</footer>
+
+<script>
+function toggleMenu() {
+    document.getElementById("menu").classList.toggle("open");
+}
+
+function closeMenu() {
+    document.getElementById("menu").classList.remove("open");
+}
+
+function copyCode(id) {
+    const code = document.getElementById(id).innerText;
+    const area = document.createElement("textarea");
+
+    area.value = code;
+    area.style.position = "fixed";
+    area.style.left = "-9999px";
+
+    document.body.appendChild(area);
+    area.select();
+
+    try {
+        document.execCommand("copy");
+        alert("Код скопирован!");
+    } catch (e) {
+        alert("Не удалось скопировать код.");
+    }
+
+    area.remove();
+}
+</script>
+
+</body>
+</html>
+
